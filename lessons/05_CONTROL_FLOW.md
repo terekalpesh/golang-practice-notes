@@ -109,11 +109,33 @@ case condition2:
 
 ### Characteristics
 
-- **Simple**: Only `if`, `for`, `switch` - that's it!
-- **No parentheses**: Conditions don't need `()`
-- **Curly braces required**: Even for one-line blocks
+#### Control Flow Structure Characteristics
+- **Simple**: Only `if`, `for`, `switch` - that's it! (no while, do-while, etc.)
+- **No parentheses**: Conditions don't need `()` (unlike C/Java)
+- **Curly braces required**: Even for one-line blocks (unlike Python)
+- **Mandatory blocks**: Can't have single-line statements without braces
+- **Explicit conditions**: Conditions must be boolean (no truthy/falsy)
+
+#### Conditional Characteristics
+- **If/else**: Standard branching logic
+- **If with init**: Can declare variable in if statement (scoped to if block)
+- **Switch**: Cleaner than long if/else chains
+- **Switch flexibility**: Can switch on value or condition
+- **Fallthrough**: Explicit `fallthrough` needed (unlike C)
+
+#### Loop Characteristics
+- **For loop versatility**: `for` does everything (traditional, while, infinite, range)
+- **Range loop**: Special loop for collections (slices, maps, strings, channels)
 - **Break/continue**: Control loop flow
-- **Range**: Special loop for collections
+- **Labeled break/continue**: Break/continue outer loops
+- **No do-while**: Use `for { }` with break instead
+
+#### Data Iteration Characteristics
+- **Range over slices**: Get index and value
+- **Range over maps**: Get key and value (random order)
+- **Range over strings**: Get byte index and rune (Unicode character)
+- **Range over channels**: Receive until channel closed
+- **Index/value control**: Use `_` to ignore index or value
 
 ---
 

@@ -162,11 +162,39 @@ case msg := <-ch:
 
 ### Characteristics
 
-- **Goroutines**: Lightweight (2KB stack), cheap to create
-- **Channels**: Type-safe communication
+#### Goroutine Characteristics
+- **Lightweight**: Only 2KB initial stack (grows as needed)
+- **Cheap creation**: Can create millions of goroutines
+- **Fast startup**: Much faster than OS threads
+- **Managed by runtime**: Go runtime schedules goroutines on OS threads
+- **M:N model**: M goroutines mapped to N OS threads (efficient)
+- **Preemptive scheduling**: Go runtime can preempt goroutines
+- **No GIL**: True parallelism (unlike Python's GIL)
+
+#### Channel Characteristics
+- **Type-safe**: Channels are typed (can only send/receive specific type)
+- **Synchronization**: Channels synchronize goroutines automatically
+- **Unbuffered**: Synchronous communication (sender waits for receiver)
+- **Buffered**: Asynchronous communication (up to capacity)
+- **Thread-safe**: Channels are safe for concurrent access
+- **Directional**: Can restrict to send-only or receive-only
+- **Zero value**: `nil` (can't use until initialized)
+
+#### Data Communication Characteristics
 - **No shared memory**: Communicate by sharing (channels), not sharing memory
+- **Message passing**: Data sent through channels (CSP model)
+- **Blocking operations**: Send/receive block until ready (synchronization)
+- **Select statement**: Wait on multiple channels simultaneously
+- **Channel closing**: Close channel to signal no more values
+- **Range over channels**: Iterate until channel closed
+
+#### Concurrency Model Characteristics
+- **CSP (Communicating Sequential Processes)**: Go's concurrency model
 - **Built-in**: Part of language, not library
 - **Scalable**: Can have millions of goroutines
+- **Efficient**: Low overhead, high throughput
+- **Composable**: Easy to build complex concurrent systems
+- **Safe**: Type-safe, memory-safe concurrent programming
 
 ---
 

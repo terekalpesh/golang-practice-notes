@@ -131,11 +131,35 @@ area := s.Area()
 
 ### Characteristics
 
-- **Implicit implementation**: No "implements" keyword
-- **Duck typing**: "If it walks like a duck, it's a duck"
-- **Composable**: Interfaces can embed other interfaces
-- **Empty interface**: `interface{}` accepts any type
-- **Type assertion**: Get concrete type from interface
+#### Interface Definition Characteristics
+- **Implicit implementation**: No "implements" keyword - automatic if methods match
+- **Duck typing**: "If it walks like a duck, it's a duck" - structural typing
+- **Composable**: Interfaces can embed other interfaces (composition)
+- **Method sets**: Interface defines set of methods that must be implemented
+- **No fields**: Interfaces only define methods, not data
+- **No implementation**: Interface has no code, only signatures
+
+#### Implementation Characteristics
+- **Automatic**: Type automatically implements interface if it has required methods
+- **Multiple interfaces**: One type can implement many interfaces
+- **Interface satisfaction**: Checked at compile time
+- **Method matching**: Method signature must match exactly
+- **Receiver type**: Value or pointer receiver both work
+
+#### Data Characteristics
+- **Polymorphism**: One interface, multiple implementations
+- **Type erasure**: Interface variable holds both type and value
+- **Dynamic dispatch**: Method called based on concrete type at runtime
+- **Empty interface**: `interface{}` accepts any type (use sparingly)
+- **Type assertion**: Get concrete type from interface (runtime check)
+- **Type switch**: Switch on interface type
+
+#### Usage Characteristics
+- **Abstraction**: Hide implementation details
+- **Flexibility**: Write code that works with multiple types
+- **Testing**: Easy to create mock implementations
+- **Decoupling**: Depend on interfaces, not concrete types
+- **Extensibility**: Add new implementations without changing code
 
 ---
 

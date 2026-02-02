@@ -86,6 +86,37 @@ go test
 - Finds all `*_test.go` files
 - Runs all `Test*` functions
 
+### Characteristics
+
+#### Test Structure Characteristics
+- **Test files**: Files ending with `_test.go` are test files
+- **Test functions**: Functions starting with `Test` are test functions
+- **Test package**: Can be same package or `_test` package
+- **Test naming**: `TestFunctionName` convention
+- **Table-driven tests**: Idiomatic Go pattern for multiple test cases
+
+#### Test Execution Characteristics
+- **Automatic discovery**: Go automatically finds and runs tests
+- **Parallel execution**: Tests can run in parallel (with `t.Parallel()`)
+- **Test isolation**: Each test runs independently
+- **Test ordering**: Tests run in unpredictable order (don't depend on order)
+- **Fast execution**: Tests compile and run quickly
+
+#### Test Data Characteristics
+- **Test fixtures**: Can set up test data in test functions
+- **Test helpers**: Helper functions for common test setup
+- **Test tables**: Slice of test cases for table-driven tests
+- **Test cleanup**: Use `defer` for cleanup in tests
+- **Test data isolation**: Each test should be independent
+
+#### Testing Framework Characteristics
+- **Built-in**: Testing built into Go (no external framework needed)
+- **Simple API**: Minimal testing API (`testing.T`)
+- **No assertions**: Manual if statements (no assert library)
+- **Benchmarking**: Built-in benchmark support
+- **Coverage**: Built-in code coverage tools
+- **Examples**: Can write example code that doubles as tests
+
 ---
 
 ## d) Python Comparison

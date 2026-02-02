@@ -147,11 +147,35 @@ func process() error {
 
 ### Characteristics
 
-- **Explicit**: Errors are visible, not hidden
+#### Error Type Characteristics
+- **Error interface**: `error` is an interface with `Error() string` method
+- **Error is value**: Errors are values, not exceptions
+- **Multiple returns**: Standard pattern: `(result, error)`
+- **Nil means success**: `nil` error = no error occurred
+- **Non-nil means failure**: Non-nil error = something went wrong
+- **Comparable**: Can compare errors with `==` or `errors.Is()`
+
+#### Error Handling Characteristics
+- **Explicit**: Errors are visible in code, not hidden
 - **No exceptions**: No try/catch, no panic (usually)
-- **Error is value**: Can pass around, store, compare
-- **Multiple returns**: `(result, error)` pattern
-- **Must check**: Can't easily ignore errors
+- **Must check**: Can't easily ignore errors (compiler helps)
+- **Explicit propagation**: Must explicitly return errors
+- **Error wrapping**: Can wrap errors with context (`fmt.Errorf` with `%w`)
+- **Error unwrapping**: Can unwrap errors to get original (`errors.Unwrap`)
+
+#### Error Flow Characteristics
+- **Return pattern**: Error is always last return value
+- **Early return**: Common pattern: check error, return early
+- **Error propagation**: Errors bubble up through call stack
+- **Context addition**: Each layer can add context to errors
+- **Error handling**: Caller decides how to handle error
+
+#### Error Data Characteristics
+- **String representation**: Errors have string message
+- **Custom errors**: Can create custom error types
+- **Error values**: Can store additional data in errors
+- **Error comparison**: Can check error type with `errors.As()`
+- **Error chains**: Errors can be wrapped in chains
 
 ---
 

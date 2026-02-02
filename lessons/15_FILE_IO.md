@@ -71,6 +71,37 @@ err := ioutil.WriteFile("file.txt", data, 0644)
 - Writes all data at once
 - `0644` = file permissions
 
+### Characteristics
+
+#### File Operation Characteristics
+- **Error handling**: All file operations return errors (must check)
+- **Resource management**: Files must be closed (use `defer`)
+- **Byte-oriented**: Files read/write as `[]byte`
+- **Text vs Binary**: No distinction in Go (treat as bytes)
+- **File modes**: Read, write, append, create modes
+- **Permissions**: Unix-style file permissions (octal notation)
+
+#### Reading Characteristics
+- **Read entire file**: Simple but memory-intensive for large files
+- **Streaming read**: Line-by-line or chunk-by-chunk (memory efficient)
+- **Scanner**: Convenient for line-by-line reading
+- **Buffer**: Can use buffered I/O for performance
+- **Error handling**: EOF (end of file) is normal, not error
+
+#### Writing Characteristics
+- **Write entire file**: Simple but overwrites existing file
+- **Append mode**: Add to end of file without overwriting
+- **Buffered writing**: Use `bufio.Writer` for performance
+- **Atomic writes**: Write to temp file then rename (for safety)
+- **File creation**: Creates file if doesn't exist (with appropriate mode)
+
+#### Data Characteristics
+- **Byte slices**: Files work with `[]byte` (convert strings as needed)
+- **Text encoding**: Handle encoding explicitly (UTF-8, etc.)
+- **Line endings**: Handle different line endings (Unix, Windows, Mac)
+- **File size**: Can check file size before reading
+- **File metadata**: Can access file info (size, mod time, permissions)
+
 ---
 
 ## d) Python Comparison

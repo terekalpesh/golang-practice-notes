@@ -108,10 +108,35 @@ value := *p  // Get value at address p
 
 ### Characteristics
 
-- **Efficient**: Don't copy large data, just share address
-- **Mutable**: Can modify original value
-- **Nil pointers**: Pointers can be `nil` (no address)
-- **Type safety**: `*int` is different from `*string`
+#### Pointer Data Characteristics
+- **Memory address**: Stores location of data in memory
+- **Indirection**: Access data through address (not directly)
+- **Efficient**: Don't copy large data, just share address (8 bytes on 64-bit systems)
+- **Mutable**: Can modify original value through pointer
+- **Nil pointers**: Pointers can be `nil` (no address) - must check before use
+- **Type safety**: `*int` is different from `*string` (type-safe)
+- **Zero value**: `nil` (no address)
+
+#### Memory Characteristics
+- **Size**: Pointer size is fixed (8 bytes on 64-bit, 4 bytes on 32-bit)
+- **Memory layout**: Pointer stores address, not actual data
+- **Heap vs Stack**: Can point to data on heap or stack
+- **Garbage collection**: Go's GC tracks pointers to manage memory
+- **No pointer arithmetic**: Go doesn't allow pointer arithmetic (unlike C)
+
+#### Usage Characteristics
+- **Sharing**: Multiple pointers can point to same data
+- **Modification**: Changes through pointer affect original
+- **Comparison**: Can compare pointers (same address = same pointer)
+- **Function parameters**: Pass by reference (modify original)
+- **Return values**: Return pointer to avoid copying large data
+- **Struct fields**: Can have pointer fields (optional/nil-able fields)
+
+#### Safety Characteristics
+- **Nil safety**: Must check for nil before dereferencing
+- **Bounds checking**: Go checks array/slice bounds (prevents buffer overflows)
+- **Type checking**: Compiler ensures pointer types match
+- **No dangling pointers**: Garbage collector prevents dangling pointers
 
 ---
 

@@ -121,6 +121,33 @@ var b bool       // b = false
 - Compiler catches type errors
 - No implicit conversions (unlike Python)
 
+### Variable Characteristics
+
+#### Declaration Characteristics
+- **Static typing**: Type is known at compile time (not runtime)
+- **Type inference**: Go can infer type from value (but type is fixed)
+- **Immutable type**: Once declared, type cannot change
+- **Scope**: Variables have scope (package-level or function-level)
+- **Lifetime**: Variables exist until out of scope
+
+#### Memory Characteristics
+- **Stack vs Heap**: Local variables on stack, large data on heap
+- **Zero values**: Uninitialized variables get default values
+- **Memory safety**: Go manages memory (garbage collection)
+- **No null**: Go uses zero values, not null/None
+
+#### Type Characteristics
+- **Strong typing**: Types are strictly enforced
+- **No type coercion**: Must explicitly convert types
+- **Type checking**: Happens at compile time (catches errors early)
+- **Type aliases**: Can create type aliases for clarity
+
+#### Data Characteristics
+- **Value semantics**: Variables hold values (not references, except for reference types)
+- **Copy behavior**: Assignment copies value (except reference types)
+- **Mutability**: Can modify variable value (but not type)
+- **Initialization**: Can declare without initializing (gets zero value)
+
 ---
 
 ## d) Python Comparison

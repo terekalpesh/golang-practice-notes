@@ -89,11 +89,37 @@ delete(m, "apple")
 
 ### Characteristics
 
-- **Zero value**: `nil` (can't use until initialized)
-- **Reference type**: Maps are references (like slices)
-- **Keys must be comparable**: Numbers, strings, arrays, structs (not slices, maps, functions)
-- **Unordered**: Iteration order is random
-- **Dynamic**: Grows automatically
+#### Map Data Structure Characteristics
+- **Zero value**: `nil` (can't use until initialized with `make`)
+- **Reference type**: Maps are references (like slices, not copied)
+- **Hash table**: Underlying implementation uses hash table
+- **Dynamic**: Grows automatically as needed
+- **Unordered**: Iteration order is random (don't rely on order!)
+- **Fast lookup**: O(1) average case for get/set/delete operations
+- **Memory overhead**: More memory than arrays/slices (hash table overhead)
+
+#### Key Characteristics
+- **Comparable keys only**: Keys must be comparable types
+  - ✅ Allowed: numbers, strings, arrays, structs (with comparable fields), pointers
+  - ❌ Not allowed: slices, maps, functions
+- **Unique keys**: Each key can appear only once
+- **Zero value keys**: Valid (can use 0, "", false as keys)
+- **Key type consistency**: All keys must be same type
+
+#### Value Characteristics
+- **Any value type**: Values can be any type (including slices, maps, functions)
+- **Zero value values**: Missing keys return zero value of value type
+- **Nil values**: Can store `nil` as value (different from missing key)
+
+#### Data Collection Characteristics
+- **Key-value pairs**: Associative data structure
+- **Fast retrieval**: O(1) average lookup time
+- **Efficient insertion**: O(1) average insertion time
+- **Efficient deletion**: O(1) average deletion time
+- **No ordering**: Elements have no inherent order
+- **Thread safety**: Not thread-safe (use sync.Map for concurrent access)
+- **Memory efficient**: Only stores what you put in (no pre-allocation)
+- **Iteration**: Can iterate over keys, values, or both
 
 ---
 

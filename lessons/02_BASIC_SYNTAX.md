@@ -86,11 +86,33 @@ func main() {
 
 ### Characteristics
 
-- **Case-sensitive**: `Name` and `name` are different
-- **No semicolons needed**: Go adds them automatically
-- **Curly braces required**: `{ }` for blocks
-- **Strict formatting**: Go has opinions about style
-- **Unused code = error**: Can't have unused variables/imports
+#### Language Syntax Characteristics
+- **Case-sensitive**: `Name` and `name` are different identifiers
+- **No semicolons needed**: Go adds them automatically (but allowed)
+- **Curly braces required**: `{ }` for blocks (even one-line blocks)
+- **Strict formatting**: Go has opinions about style (enforced by `go fmt`)
+- **Unused code = error**: Can't have unused variables/imports (compiler error)
+- **Explicit syntax**: Clear and unambiguous syntax
+
+#### Package Characteristics
+- **Package declaration**: Every file starts with `package` declaration
+- **Main package**: `package main` creates executable program
+- **Package scope**: All files in same directory = same package
+- **Package naming**: Package name usually matches directory name
+
+#### Import Characteristics
+- **Explicit imports**: Must import what you use
+- **Unused imports**: Compile error (not warning)
+- **Import grouping**: Standard library, third-party, local
+- **Import aliases**: Can alias imports to avoid conflicts
+- **Blank imports**: `_` import for side effects only
+
+#### Code Organization Characteristics
+- **File-based**: Code organized in files
+- **Package-based**: Code organized in packages (directories)
+- **Entry point**: `main()` function is program entry point
+- **Compilation unit**: Package is compilation unit
+- **Visibility**: Exported (capital) vs unexported (lowercase)
 
 ---
 

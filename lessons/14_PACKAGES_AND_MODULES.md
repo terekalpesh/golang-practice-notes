@@ -69,11 +69,35 @@ mypackage.PublicFunc()
 
 ### Characteristics
 
+#### Package Characteristics
 - **Package = directory**: One package per directory
-- **Exports**: Capital letter = exported, lowercase = private
-- **Modules**: Dependency management (Go 1.11+)
-- **go.mod**: Defines module and dependencies
-- **go.sum**: Checksums for security
+- **Package name**: Usually matches directory name
+- **Package scope**: All files in directory share same package
+- **Exports**: Capital letter = exported (public), lowercase = unexported (private)
+- **Internal packages**: `internal/` packages can't be imported from outside module
+- **Package initialization**: `init()` functions run automatically
+
+#### Module Characteristics
+- **Module = project**: Module is collection of related packages
+- **go.mod file**: Defines module name and Go version
+- **go.sum file**: Checksums for security (prevents tampering)
+- **Dependency management**: Modules manage dependencies
+- **Versioning**: Semantic versioning for dependencies
+- **Vendor directory**: Optional vendor directory for dependencies
+
+#### Import Characteristics
+- **Module path**: Import path relative to module root
+- **Standard library**: Import from standard library (e.g., `"fmt"`)
+- **Third-party**: Import from internet (e.g., `"github.com/user/repo"`)
+- **Local packages**: Import from same module (e.g., `"myproject/utils"`)
+- **Import resolution**: Go resolves imports from module path
+
+#### Code Organization Characteristics
+- **Hierarchical**: Packages organized in directory hierarchy
+- **Reusability**: Packages can be reused across projects
+- **Encapsulation**: Unexported names are package-private
+- **Visibility rules**: Exported names visible outside package
+- **Package boundaries**: Clear boundaries between packages
 
 ---
 

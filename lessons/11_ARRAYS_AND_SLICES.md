@@ -81,11 +81,35 @@ s = append(s, 4)
 
 ### Characteristics
 
-- **Arrays**: Fixed size, value type (copied)
-- **Slices**: Dynamic size, reference type (shared)
-- **Zero value**: Array = zeroed elements, Slice = `nil`
-- **Indexing**: Both use `[index]`
-- **Range**: Both work with `for range`
+#### Arrays Characteristics
+- **Fixed size**: Size is part of type, cannot change after creation
+- **Value type**: Copied when passed to functions (entire array is copied)
+- **Memory**: Contiguous memory allocation
+- **Zero value**: All elements initialized to zero value of element type
+- **Type safety**: `[5]int` and `[10]int` are different types
+- **Performance**: Faster access (no indirection), but copying is expensive
+- **Use cases**: Fixed-size buffers, when size is known at compile time
+
+#### Slices Characteristics
+- **Dynamic size**: Can grow and shrink as needed
+- **Reference type**: Points to underlying array (shared reference)
+- **Three components**: Pointer, length, capacity
+- **Zero value**: `nil` (no underlying array)
+- **Memory efficient**: Multiple slices can share same underlying array
+- **Append behavior**: May allocate new array if capacity exceeded
+- **Slicing**: Creates new slice sharing underlying array (be careful with modifications!)
+- **Performance**: Slightly slower than arrays (indirection), but flexible
+- **Use cases**: Dynamic collections, when size is unknown or changes
+
+#### Data Collection Characteristics
+- **Ordered**: Elements maintain insertion order (unlike maps)
+- **Indexed access**: Fast O(1) access by index
+- **Iteration**: Can iterate with index or just values
+- **Type homogeneous**: All elements must be same type
+- **Memory layout**: Contiguous in memory (good for cache performance)
+- **Bounds checking**: Go checks bounds at runtime (prevents buffer overflows)
+- **Zero-indexed**: First element is at index 0
+- **Negative indices**: Not supported (unlike Python)
 
 ---
 

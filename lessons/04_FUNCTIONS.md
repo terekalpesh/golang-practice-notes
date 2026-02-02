@@ -118,11 +118,35 @@ func calculate(x, y int) (sum int, product int) {
 
 ### Function Characteristics
 
-- **First-class citizens**: Functions are values (can assign to variables)
-- **Multiple returns**: Go's signature feature
-- **No default parameters**: Must pass all parameters
-- **No function overloading**: One function name = one function
-- **Can return functions**: Functions can return other functions
+#### Function Definition Characteristics
+- **First-class citizens**: Functions are values (can assign to variables, pass as parameters)
+- **Multiple returns**: Go's signature feature - can return multiple values
+- **No default parameters**: Must pass all parameters (use structs for optional params)
+- **No function overloading**: One function name = one function (no multiple signatures)
+- **Can return functions**: Functions can return other functions (higher-order functions)
+- **Can accept functions**: Functions can take other functions as parameters
+- **Closures**: Functions can capture variables from outer scope
+
+#### Function Call Characteristics
+- **Pass by value**: Parameters are copied (unless pointer)
+- **Evaluation order**: Arguments evaluated before function call
+- **Stack frames**: Each call creates new stack frame
+- **Return mechanism**: Values returned via stack
+- **Defer execution**: `defer` statements execute when function returns
+
+#### Function Type Characteristics
+- **Function types**: Functions have types (signature)
+- **Type safety**: Function signatures must match exactly
+- **Variadic functions**: Can accept variable number of arguments
+- **Named returns**: Can name return values for clarity
+- **Naked returns**: Can return without specifying values (uses named returns)
+
+#### Data Flow Characteristics
+- **Input**: Parameters provide input data
+- **Output**: Return values provide output data
+- **Side effects**: Functions can modify external state (avoid when possible)
+- **Pure functions**: Functions that only depend on inputs (preferred)
+- **Error handling**: Errors returned as values (not exceptions)
 
 ---
 

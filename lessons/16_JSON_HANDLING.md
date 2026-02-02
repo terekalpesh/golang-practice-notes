@@ -68,6 +68,39 @@ err := json.Unmarshal(data, &person)
 - Converts JSON to struct
 - Must pass pointer
 
+### Characteristics
+
+#### JSON Encoding Characteristics
+- **Struct-based**: JSON encoding based on struct definitions
+- **Struct tags**: Control JSON field names and behavior
+- **Type mapping**: Go types map to JSON types automatically
+- **Zero values**: Zero values encoded (unless `omitempty`)
+- **Nested structures**: Supports nested structs and arrays
+- **Pretty printing**: `MarshalIndent` for human-readable JSON
+
+#### JSON Decoding Characteristics
+- **Type inference**: JSON types mapped to Go types
+- **Pointer required**: Must pass pointer to `Unmarshal`
+- **Field matching**: JSON fields matched to struct fields (case-insensitive)
+- **Missing fields**: Missing JSON fields leave Go fields as zero values
+- **Extra fields**: Extra JSON fields are ignored (unless using `map[string]interface{}`)
+- **Type conversion**: Automatic conversion where possible
+
+#### Data Characteristics
+- **Type safety**: Struct tags provide type safety
+- **Validation**: Can validate data during unmarshaling
+- **Custom types**: Can implement `MarshalJSON`/`UnmarshalJSON` for custom behavior
+- **Null handling**: JSON `null` maps to Go zero values or `nil`
+- **Number precision**: JSON numbers can lose precision (use strings for large numbers)
+- **Date/time**: No built-in date format (use string or custom type)
+
+#### JSON Format Characteristics
+- **UTF-8 encoding**: JSON is always UTF-8
+- **Escape sequences**: Special characters automatically escaped
+- **Pretty vs compact**: Can format with indentation or compact
+- **Streaming**: Can use `json.Decoder` for streaming large JSON
+- **Validation**: JSON must be valid (syntax errors return error)
+
 ---
 
 ## d) Python Comparison

@@ -132,11 +132,33 @@ p.Greet()  // Go automatically handles value/pointer
 
 ### Characteristics
 
-- **Attached to types**: Methods belong to a type
-- **Two receiver types**: Value or pointer
-- **Automatic conversion**: Go handles value/pointer conversion
-- **Any type**: Can add methods to any type (not just structs)
-- **No `this` or `self`**: Receiver name is your choice
+#### Method Definition Characteristics
+- **Attached to types**: Methods belong to a type (not standalone)
+- **Two receiver types**: Value receiver or pointer receiver
+- **Any type**: Can add methods to any type (not just structs) - use type alias
+- **No `this` or `self`**: Receiver name is your choice (convention: first letter of type)
+- **Method set**: Collection of methods attached to a type
+
+#### Receiver Characteristics
+- **Value receiver**: Gets copy of value, cannot modify original
+- **Pointer receiver**: Gets pointer to value, can modify original
+- **Automatic conversion**: Go handles value/pointer conversion automatically
+- **Consistency**: Usually all methods use same receiver type
+- **Performance**: Pointer receiver avoids copying (important for large structs)
+
+#### Method Call Characteristics
+- **Dot notation**: Call with `value.Method()` or `pointer.Method()`
+- **Automatic dereferencing**: Go automatically handles `&` and `*`
+- **Method promotion**: Embedded struct methods are promoted
+- **Method sets**: Interface satisfaction based on method sets
+- **Method values**: Can get method as function value
+
+#### Data Characteristics
+- **Encapsulation**: Methods provide controlled access to data
+- **Behavior attachment**: Methods attach behavior to data
+- **Type-specific**: Methods are specific to their type
+- **Polymorphism**: Methods enable interface-based polymorphism
+- **Code organization**: Methods organize code by data they operate on
 
 ---
 

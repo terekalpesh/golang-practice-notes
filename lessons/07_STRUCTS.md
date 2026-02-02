@@ -133,11 +133,31 @@ p := Person{}  // Name="", Age=0
 
 ### Characteristics
 
-- **Value type**: Structs are copied when passed (unless using pointer)
+#### Struct Data Structure Characteristics
+- **Value type**: Structs are copied when passed to functions (unless using pointer)
+- **Memory layout**: Fields stored in order (contiguous in memory)
+- **Zero values**: All fields get zero values if not initialized
+- **Type safety**: Strong typing - each field has specific type
+- **Size**: Sum of all field sizes (plus padding for alignment)
+- **Comparable**: Structs are comparable if all fields are comparable
+- **Copy behavior**: Assignment creates copy (not reference)
+
+#### Design Characteristics
 - **No inheritance**: Go doesn't have classes/inheritance
-- **Composition**: Build complex types by embedding structs
-- **Methods**: Can attach functions to structs
-- **Exported fields**: Capital letter = exported (public)
+- **Composition over inheritance**: Build complex types by embedding structs
+- **Methods**: Can attach functions to structs (value or pointer receiver)
+- **Exported fields**: Capital letter = exported (public), lowercase = unexported (private)
+- **Field tags**: Can add metadata tags (e.g., JSON tags)
+- **Embedded structs**: Can embed other structs (like inheritance, but composition)
+
+#### Data Collection Characteristics
+- **Heterogeneous data**: Can store different types of data together
+- **Named fields**: Access by name (not index like arrays)
+- **Type definition**: Defines structure once, create many instances
+- **Memory efficient**: Only stores actual data (no overhead like classes)
+- **Immutable structure**: Field names/types fixed after definition
+- **Flexible values**: Field values can change, structure cannot
+- **Grouping**: Groups related data into logical units
 
 ---
 
