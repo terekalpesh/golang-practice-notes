@@ -1231,4 +1231,4 @@ Now you understand control flow. Next topics to explore:
 - Methods (functions on types)
 - Interfaces (polymorphism)
 
-**Continue learning! → Check [README.md](./README.md) for next topics**
+**Continue learning! → Check [README.md](../README.md) for next topics**

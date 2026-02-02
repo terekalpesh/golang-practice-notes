@@ -840,4 +840,4 @@ You've now learned:
 3. **Join Go community** - Learn from others
 4. **Keep practicing** - Mastery comes with practice
 
-**Use the [Cheat Sheet](./99_CHEAT_SHEET.md) for quick reference!**
+**Use the [Cheat Sheet](../reference/99_CHEAT_SHEET.md) for quick reference!**

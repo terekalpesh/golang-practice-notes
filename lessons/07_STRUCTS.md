@@ -1468,4 +1468,4 @@ Now you understand structs. Next topics:
 - Error handling (Go's way)
 - Concurrency (goroutines and channels)
 
-**Continue learning! → Check [README.md](./README.md) for next topics**
+**Continue learning! → Check [README.md](../README.md) for next topics**
